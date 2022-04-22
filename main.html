@@ -36,13 +36,13 @@
 		    url:"contents.json",method:"GET",
 		    success:function(e,obj){
 		        var items = $(obj);
-
+		        console.log(items);
 				var itemHtml = "";
 				var contentHtml = "";
 				var seq = 1;
 				for(var i = 0 ; i < items.length; i++){
 					var itemD  = items.get(i); //일자기준
-					
+					console.log(itemD);
 					for(var j = 0 ; j < itemD.contents.length ; j++){
 
 						var item = $(itemD.contents).get(j);
@@ -65,6 +65,7 @@
 
 				}
 
+				console.log(itemHtml);
 				$("#items").html(itemHtml);
 				$("#content").html(contentHtml);
 
