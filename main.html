@@ -35,7 +35,7 @@
 		$.get({
 		    url:"contents.json",method:"GET",
 		    success:function(e,obj){
-		        items = obj;
+		        var items = $(obj);
 
 				var itemHtml = "";
 				var contentHtml = "";
