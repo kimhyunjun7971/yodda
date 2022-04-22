@@ -6,7 +6,9 @@
 "summary":"좋은기저귀에요~~",
 "add":"인기만점네이버",
 "url":"http://www.naver.com",
-"description":"상세설명1"
+"description":
+'<iframe src="https://coupa.ng/ccxBou" width="120" height="240" frameborder="0" scrolling="no" referrerpolicy="unsafe-url"></iframe>'
+많이구매하세요~~ㅎㅎ
 },
 {
 "title":"기저귀2",
@@ -215,7 +217,7 @@
 "summary":"좋은기저귀에요~~",
 "add":"인기만점네이버",
 "url":"http://www.naver.com",
-"description":"상세설명3"
+"description":""
 },
 {
 "title":"기저귀44",
