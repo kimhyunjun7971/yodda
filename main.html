@@ -6,20 +6,67 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</head>
-	<body>
+	<body onresize="resize()">
 		<div class="container">
 			<div class="row">
-				<div id="items" class="col-3">
+				<div class="col-4">
+					<div class="list-group" id="items" role="tablist" style="overflow-y:auto;">
 
+					</div>
 				</div>
-				<div id="content" class="col-9">
-					testtest
+				<div class="col-8">
+					<div class="tab-content" id="content">
+
+					</div>
 				</div>
 			</div>
 		</div>
 
 	</body>
 	<script>
-		$("#items").load("items.html");
+		
+		var pageHeight = document.documentElement.scrollHeight;
+		$("#items").parent().css("height",pageHeight);
+		$("#items").css("height",pageHeight);
+		
+		var json='[{"contents":[{		"title":"기저귀1",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com","description":"상세설명1"	},{		"title":"기저귀2",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	,"description":"상세설명2"}],	"date":"2022-04-22"},{"contents":[{		"title":"기저귀33",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com"	,"description":"상세설명3"},{		"title":"기저귀44",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	}],	"date":"2022-04-25","description":"상세설명4"},{"contents":[{		"title":"기저귀1",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com","description":"상세설명1"	},{		"title":"기저귀2",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	,"description":"상세설명2"}],	"date":"2022-04-22"},{"contents":[{		"title":"기저귀33",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com"	,"description":"상세설명3"},{		"title":"기저귀44",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	}],	"date":"2022-04-25","description":"상세설명4"},{"contents":[{		"title":"기저귀1",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com","description":"상세설명1"	},{		"title":"기저귀2",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	,"description":"상세설명2"}],	"date":"2022-04-22"},{"contents":[{		"title":"기저귀33",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com"	,"description":"상세설명3"},{		"title":"기저귀44",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	}],	"date":"2022-04-25","description":"상세설명4"},{"contents":[{		"title":"기저귀1",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com","description":"상세설명1"	},{		"title":"기저귀2",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	,"description":"상세설명2"}],	"date":"2022-04-22"},{"contents":[{		"title":"기저귀33",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com"	,"description":"상세설명3"},{		"title":"기저귀44",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	}],	"date":"2022-04-25","description":"상세설명4"},{"contents":[{		"title":"기저귀1",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com","description":"상세설명1"	},{		"title":"기저귀2",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	,"description":"상세설명2"}],	"date":"2022-04-22"},{"contents":[{		"title":"기저귀33",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com"	,"description":"상세설명3"},{		"title":"기저귀44",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	}],	"date":"2022-04-25","description":"상세설명4"},{"contents":[{		"title":"기저귀1",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com","description":"상세설명1"	},{		"title":"기저귀2",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	,"description":"상세설명2"}],	"date":"2022-04-22"},{"contents":[{		"title":"기저귀33",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com"	,"description":"상세설명3"},{		"title":"기저귀44",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	}],	"date":"2022-04-25","description":"상세설명4"},{"contents":[{		"title":"기저귀1",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com","description":"상세설명1"	},{		"title":"기저귀2",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	,"description":"상세설명2"}],	"date":"2022-04-22"},{"contents":[{		"title":"기저귀33",		"summary":"좋은기저귀에요~~",		"add":"인기만점네이버","url":"http://www.naver.com"	,"description":"상세설명3"},{		"title":"기저귀44",		"summary":"좋은기저귀에요~~",		"add":"인기만점다음","url":"http://www.daum.com"	}],	"date":"2022-04-25","description":"상세설명4"}]';
+
+		
+		var items = $(JSON.parse(json));
+		var itemHtml = "";
+		var contentHtml = "";
+		var seq = 1;
+		for(var i = 0 ; i < items.length; i++){
+			var itemD  = items.get(i); //일자기준
+			
+			for(var j = 0 ; j < itemD.contents.length ; j++){
+
+				var item = $(itemD.contents).get(j);
+			
+				
+				itemHtml += 
+				'<a href="#i'+ seq +'" class="list-group-item list-group-item-action flex-column align-items-start">'
+				+'	<div class="d-flex w-100 justify-content-between">'
+				+'		<h5 class="mb-1">'+item.title+'</h5>'
+				+'		<small>'+itemD.date+'</small>'
+				+'	</div>'
+				+'	<p class="mb-1">'+item.summary+'</p>'
+				+'	<small>'+item.add+'</small>'
+				+'</a>';
+
+				contentHtml += '<div class="tab-pane fade" id="i'+ seq++ +'" role="tabpanel" aria-labelledby="list-profile-list">'+item.description+'</div>';
+				
+			}
+
+
+		}
+
+		$("#items").html(itemHtml);
+		$("#content").html(contentHtml);
+
+		$(".list-group-item").on("click",function(){
+			$(this).tab("show");
+		});
+
 	</script>
 </html>
