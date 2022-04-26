@@ -33,7 +33,8 @@
 		$("#items").css("height",pageHeight);
 
 		$.get({
-		    url:"contents.json",method:"GET",
+		    url:"contents.json?"+Math.random(),method:"GET",
+		    cache : false,
 		    success:function(obj){
 		        var items = $(obj);
 				var itemHtml = "";
